@@ -10,9 +10,13 @@ project(${PROJECT_NAME})
 # CXX Standard
 set(CMAKE_CXX_STANDARD_REQUIRED 11)
 
+# Packages
+find_package(SFML COMPONENTS window graphics system REQUIRED)
+
 # Executable
 add_executable(
   ${PROJECT_NAME}
   src/Main.cpp
 )
 target_include_directories(${PROJECT_NAME} PUBLIC src)
+target_link_libraries(${PROJECT_NAME} PUBLIC sfml-graphics sfml-window sfml-system)
